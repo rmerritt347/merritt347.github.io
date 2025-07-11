@@ -163,11 +163,6 @@
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(197, 31, 93, 0.4);
-        }
-
-        .cta-button:hover {
             background: white;
             color: #141D26;
             transform: translateY(-2px);
@@ -200,15 +195,58 @@
             animation: fadeInUp 0.8s ease-out 0.5s forwards;
         }
 
-        .about p {
-            font-size: 1.1rem;
-            max-width: 800px;
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1000px;
             margin: 0 auto;
-            color: #243447;
-            line-height: 1.8;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s ease-out 0.7s forwards;
+        }
+
+        .about-image {
+            flex-shrink: 0;
+        }
+
+        .about-image img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(197, 31, 93, 0.2);
+            border: 3px solid #C51F5D;
+        }
+
+        .about-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #243447;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Responsive for about section */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .about-text {
+                text-align: center;
+            }
+
+            .about-image img {
+                width: 150px;
+                height: 150px;
+            }
         }
 
         /* Professional courses section */
@@ -231,7 +269,7 @@
             gap: 2.5rem;
             max-width: 1400px;
             margin: 0 auto;
-            align-items: stretch; /* Makes all cards the same height */
+            align-items: stretch;
         }
 
         .course-card {
@@ -246,7 +284,7 @@
             transform: translateY(30px);
             display: flex;
             flex-direction: column;
-            min-height: 600px; /* Set minimum height for consistent sizing */
+            min-height: 600px;
         }
 
         .course-card:nth-child(1) {
@@ -259,6 +297,10 @@
 
         .course-card:nth-child(3) {
             animation: fadeInUp 0.8s ease-out 0.7s forwards;
+        }
+
+        .course-card:nth-child(4) {
+            animation: fadeInUp 0.8s ease-out 0.9s forwards;
         }
 
         .course-card::before {
@@ -289,7 +331,7 @@
             background: #f8f9fa;
             position: relative;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            height: 300px; /* Fixed height for alignment */
+            height: 300px;
         }
 
         .gallery-track {
@@ -306,7 +348,7 @@
         .gallery-item {
             flex: 0 0 100%;
             position: relative;
-            height: 300px; /* Fixed height */
+            height: 300px;
         }
 
         .gallery-item img {
@@ -460,7 +502,7 @@
             color: #243447;
             margin-bottom: 2rem;
             line-height: 1.7;
-            flex-grow: 1; /* This will push the content below to the bottom */
+            flex-grow: 1;
         }
 
         .course-tags {
@@ -521,7 +563,100 @@
             box-shadow: 0 6px 20px rgba(197, 31, 93, 0.3);
         }
 
-        /* Professional contact section */
+        /* Documents section */
+        .documents {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .documents h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            color: #141D26;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .document-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid #e9ecef;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+
+        .document-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #C51F5D, #243447);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .document-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(197, 31, 93, 0.15);
+        }
+
+        .document-icon {
+            margin: 0 auto 1.5rem;
+            width: 60px;
+            height: 60px;
+            background: rgba(197, 31, 93, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .document-card:hover .document-icon {
+            background: rgba(197, 31, 93, 0.2);
+            transform: scale(1.1);
+        }
+
+        .document-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #141D26;
+            transition: color 0.3s ease;
+        }
+
+        .document-card:hover h3 {
+            color: #C51F5D;
+        }
+
+        .document-card p {
+            color: #243447;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .document-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
         .contact {
             padding: 4rem 2rem;
             text-align: center;
@@ -573,18 +708,6 @@
             padding: 2rem 0;
             font-size: 0.9rem;
             border-top: 2px solid #C51F5D;
-        }
-
-        /* Scroll-triggered animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* Responsive design */
@@ -653,6 +776,7 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#courses">Portfolio</a></li>
+                <li><a href="#documents">Documents</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -671,15 +795,73 @@
     <main class="container">
         <section id="about" class="about">
             <h2>About</h2>
-            <p>I'm an experienced instructional designer with a passion for creating engaging, effective learning solutions. My approach combines learning science principles with innovative design to deliver training that not only educates but transforms workplace performance. I specialize in compliance training, professional development, and digital learning experiences that meet both learner needs and organizational objectives.</p>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://i.postimg.cc/T170nX9N/Screenshot-2025-06-03-113757.png" alt="Rasheeda Merritt - Instructional Designer" />
+                </div>
+                <div class="about-text">
+                    <p>I'm an experienced instructional designer with a passion for creating engaging, effective learning solutions. My approach combines learning science principles with innovative design to deliver training that not only educates but transforms workplace performance. I specialize in compliance training, professional development, and digital learning experiences that meet both learner needs and organizational objectives.</p>
+                </div>
+            </div>
         </section>
 
         <section id="courses" class="courses">
             <h2>Featured Projects</h2>
             <div class="course-grid">
                 <div class="course-card">
+                    <h3>H2S Safety Training</h3>
+                    <p>Comprehensive hydrogen sulfide safety training module designed for workers in high-risk environments. This interactive course covers detection, prevention, emergency response procedures, and the proper use of personal protective equipment when working around H2S hazards.</p>
+                    
+                    <div class="course-gallery">
+                        <div class="gallery-container">
+                            <div class="gallery-track">
+                                <div class="gallery-item placeholder-slide">
+                                    <div class="placeholder-content">
+                                        <h4>H2S Safety Training</h4>
+                                        <p>Click to view course screenshots</p>
+                                        <div class="view-hint">→ Swipe or click arrows to explore</div>
+                                    </div>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="https://i.postimg.cc/zGJXPbng/Screenshot-2025-07-10-233457.png" alt="H2S Safety Course Cover" loading="lazy">
+                                    <div class="image-caption">H2S Safety Training Course Introduction and Overview</div>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="https://i.postimg.cc/7h8q1fHb/Screenshot-2025-07-10-235150.png" alt="H2S Properties and Hazards" loading="lazy">
+                                    <div class="image-caption">Understanding H2S Properties and Associated Hazards</div>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="https://i.postimg.cc/135sKxQ0/Screenshot-2025-07-10-235736.png" alt="H2S Detection Methods" loading="lazy">
+                                    <div class="image-caption">H2S Detection Methods and Monitoring Equipment</div>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="https://i.postimg.cc/br3FyBB8/Screenshot-2025-07-11-000129.png" alt="Personal Protective Equipment" loading="lazy">
+                                    <div class="image-caption">Personal Protective Equipment and Safety Procedures</div>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="https://i.postimg.cc/NjyPtb7q/Screenshot-2025-07-11-000245.png" alt="Emergency Response Procedures" loading="lazy">
+                                    <div class="image-caption">Emergency Response and Evacuation Procedures</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-nav">
+                            <button class="gallery-btn prev" aria-label="Previous image">‹</button>
+                            <button class="gallery-btn next" aria-label="Next image">›</button>
+                        </div>
+                        <div class="gallery-dots"></div>
+                    </div>
+                    
+                    <div class="course-tags">
+                        <span class="tag">Safety & Compliance</span>
+                        <span class="tag">Hazard Recognition</span>
+                        <span class="tag">Emergency Response</span>
+                    </div>
+                    <a href="https://storage.googleapis.com/rasheedaelearningportfolio/H2ssafetytraining/story.html" target="_blank" class="course-button">View Live Demo</a>
+                </div>
+
+                <div class="course-card">
                     <h3>Social Media & Workplace Behavior</h3>
-                    <p>Strategic training module addressing digital citizenship and professional online behavior. Combines policy understanding with practical application through case studies and decision-making scenarios.</p>
+                    <p>This interactive training course helps employees understand what is and isn't appropriate to share on social media when representing—or being associated with—the workplace. Learners explore real-world scenarios, apply company policy, and make decisions in gray areas that affect team reputation, confidentiality, and professionalism. Designed to promote smart, compliant posting habits, this module reinforces responsible online behavior in a connected world.</p>
                     
                     <div class="course-gallery">
                         <div class="gallery-container">
@@ -692,16 +874,20 @@
                                     </div>
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="https://storage.googleapis.com/rasheedaelearningportfolio/Screenshot%202025-06-01%20232541.png" alt="Social Media Course Cover" loading="lazy">
-                                    <div class="image-caption">Course Introduction & Overview</div>
+                                    <img src="https://i.postimg.cc/j580Sc2H/Screenshot-2025-07-11-005016.png" alt="Social Media Course Cover" loading="lazy">
+                                    <div class="image-caption">Social Media & Workplace Behavior Course Introduction</div>
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="https://storage.googleapis.com/rasheedaelearningportfolio/Screenshot%202025-06-01%20232638.png" alt="Interactive Scenario" loading="lazy">
-                                    <div class="image-caption">Interactive Decision-Making Scenario</div>
+                                    <img src="https://i.postimg.cc/CMtXrzqx/Screenshot-2025-07-11-005035.png" alt="Course Navigation and Structure" loading="lazy">
+                                    <div class="image-caption">Course Navigation and Learning Module Structure</div>
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="https://storage.googleapis.com/rasheedaelearningportfolio/Screenshot%202025-06-01%20232857.png" alt="Company Policies Overview" loading="lazy">
-                                    <div class="image-caption">Company Social Media Policies</div>
+                                    <img src="https://i.postimg.cc/Pfghp6Ky/Screenshot-2025-07-11-005056.png" alt="Interactive Learning Content" loading="lazy">
+                                    <div class="image-caption">Interactive Learning Content and Decision-Making Scenarios</div>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="https://i.postimg.cc/B6PkJ3W0/Screenshot-2025-07-11-005109.png" alt="Course Assessment and Knowledge Check" loading="lazy">
+                                    <div class="image-caption">Course Assessment and Knowledge Check Activities</div>
                                 </div>
                             </div>
                         </div>
@@ -721,30 +907,34 @@
                 </div>
 
                 <div class="course-card">
-                    <h3>Lockout/Tagout (LOTO) Safety Training</h3>
-                    <p>This interactive eLearning module was designed for industrial maintenance workers to master OSHA-compliant LOTO procedures. The course includes real-world simulations, layered instruction, knowledge checks, and a printable reference guide. Developed in Articulate Storyline, the course simulates high-stakes decision-making and reinforces procedural safety using multimedia and learner interaction.</p>
+                    <h3>Slack Smart: Micro Learning</h3>
+                    <p>Bite-sized learning modules designed to help employees master professional communication in Slack. This micro-learning series covers channel etiquette, effective messaging, notification management, and collaboration best practices. Quick, focused lessons that can be completed in under 5 minutes each, perfect for busy professionals looking to enhance their digital workplace communication skills.</p>
                     
                     <div class="course-gallery">
                         <div class="gallery-container">
                             <div class="gallery-track">
                                 <div class="gallery-item placeholder-slide">
                                     <div class="placeholder-content">
-                                        <h4>LOTO Safety Training</h4>
+                                        <h4>Slack Smart: Micro Learning</h4>
                                         <p>Click to view course screenshots</p>
                                         <div class="view-hint">→ Swipe or click arrows to explore</div>
                                     </div>
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="https://storage.googleapis.com/rasheedaelearningportfolio/Screenshot%202025-06-02%20152004.png" alt="LOTO Course Cover" loading="lazy">
-                                    <div class="image-caption">Learners enter their name for a personalized training experience before beginning the Lockout/Tagout course.</div>
+                                    <img src="https://i.postimg.cc/ydNF3M0r/Screenshot-2025-07-11-020801.png" alt="Slack Smart Course Cover" loading="lazy">
+                                    <div class="image-caption">Slack Smart Micro Learning Course Introduction</div>
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="https://storage.googleapis.com/rasheedaelearningportfolio/Screenshot%202025-06-02%20002418.png" alt="Equipment Shutdown Simulation" loading="lazy">
-                                    <div class="image-caption">An interactive simulation where users perform a step-by-step shutdown of a conveyor system with real-time system monitoring.</div>
+                                    <img src="https://i.postimg.cc/gcsVdq62/Screenshot-2025-07-11-020910.png" alt="Channel Etiquette Module" loading="lazy">
+                                    <div class="image-caption">Channel Etiquette and Communication Best Practices</div>
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="https://storage.googleapis.com/rasheedaelearningportfolio/Screenshot%202025-06-02%20002451.png" alt="LOTO Quick Reference" loading="lazy">
-                                    <div class="image-caption">A printable quick reference guide reinforces the 6-step LOTO process for jobsite access after training.</div>
+                                    <img src="https://i.postimg.cc/5yKQzgw5/Screenshot-2025-07-11-020921.png" alt="Slack Communication Features" loading="lazy">
+                                    <div class="image-caption">Slack Communication Features and Tools</div>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="https://i.postimg.cc/SNzxVmqb/Screenshot-2025-07-11-020931.png" alt="Quick Tips for Effective Communication" loading="lazy">
+                                    <div class="image-caption">Quick Tips for Effective Slack Communication</div>
                                 </div>
                             </div>
                         </div>
@@ -756,11 +946,11 @@
                     </div>
                     
                     <div class="course-tags">
-                        <span class="tag">Safety & Compliance</span>
-                        <span class="tag">OSHA Standards</span>
-                        <span class="tag">Interactive Design</span>
+                        <span class="tag">Micro Learning</span>
+                        <span class="tag">Digital Communication</span>
+                        <span class="tag">Workplace Tools</span>
                     </div>
-                    <a href="https://storage.googleapis.com/rasheedaelearningportfolio/LockOut%20Tag-out%20Safety%20Training/story.html" target="_blank" class="course-button">View Live Demo</a>
+                    <a href="https://storage.googleapis.com/rasheedaelearningportfolio/H2ssafetytraining/slack%20smarter/story.html" target="_blank" class="course-button">View Live Demo</a>
                 </div>
 
                 <div class="course-card">
@@ -773,21 +963,21 @@
                                 <div class="gallery-item placeholder-slide">
                                     <div class="placeholder-content">
                                         <h4>Ethics in Government</h4>
-                                        <p>Comprehensive ethics training course</p>
-                                        <div class="view-hint">→ Click to explore</div>
+                                        <p>Click to view course screenshots</p>
+                                        <div class="view-hint">→ Swipe or click arrows to explore</div>
                                     </div>
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="https://storage.googleapis.com/rasheedaelearningportfolio/Screenshot%202025-06-02%20191835.png" alt="Ethics Course Overview" loading="lazy">
-                                    <div class="image-caption">Course navigation showing comprehensive ethics modules with progress tracking and structured learning path.</div>
+                                    <img src="https://i.postimg.cc/KYdCQh54/Screenshot-2025-07-11-021907.png" alt="Ethics Course Cover" loading="lazy">
+                                    <div class="image-caption">Ethics in Government Course Introduction and Overview</div>
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="https://storage.googleapis.com/rasheedaelearningportfolio/Screenshot%202025-06-02%20192007.png" alt="Interactive Ethics Content" loading="lazy">
-                                    <div class="image-caption">Interactive content delivery with engaging visuals and clear learning objectives for government ethics.</div>
+                                    <img src="https://i.postimg.cc/MT2rVbWQ/Screenshot-2025-07-11-021940.png" alt="Course Navigation Menu" loading="lazy">
+                                    <div class="image-caption">Course Navigation and Module Structure</div>
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="https://storage.googleapis.com/rasheedaelearningportfolio/Screenshot%202025-06-02%20192054.png" alt="Ethics Assessment" loading="lazy">
-                                    <div class="image-caption">Knowledge reinforcement through assessments and scenario-based learning for practical application.</div>
+                                    <img src="https://i.postimg.cc/hGx2Dz9P/Screenshot-2025-07-11-022000.png" alt="Ethics Scenarios" loading="lazy">
+                                    <div class="image-caption">Interactive Ethics Scenarios and Decision-Making</div>
                                 </div>
                             </div>
                         </div>
@@ -799,59 +989,72 @@
                     </div>
                     
                     <div class="course-tags">
-                        <span class="tag">Government Training</span>
-                        <span class="tag">Ethics & Compliance</span>
-                        <span class="tag">Scenario-Based Learning</span>
+                        <span class="tag">Government Ethics</span>
+                        <span class="tag">Compliance Training</span>
+                        <span class="tag">Public Service</span>
                     </div>
-                    <a href="https://storage.googleapis.com/rasheedaelearningportfolio/content/index.html" target="_blank" class="course-button">View Live Demo</a>
+                    <a href="https://storage.googleapis.com/rasheedaelearningportfolio/content/index.html#/" target="_blank" class="course-button">View Live Demo</a>
                 </div>
             </div>
-            
-            <!-- Design Documentation Section -->
-            <div class="design-documentation" style="margin-top: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <h3 style="text-align: center; font-size: 2rem; font-weight: 600; margin-bottom: 2rem; color: #141D26;">Design Documentation</h3>
-                
-                <div class="doc-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e9ecef;">
-                    <h4 style="font-size: 1.3rem; font-weight: 600; color: #141D26; margin-bottom: 1rem;">LOTO Safety Training</h4>
-                    <p style="color: #243447; margin-bottom: 1.5rem; line-height: 1.6;">Explore the complete design process behind the LOTO Safety Training course, from initial planning to final implementation.</p>
-                    
-                    <div class="doc-links" style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="https://storage.googleapis.com/rasheedaelearningportfolio/LOTOStoryboard.pdf" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #243447; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 500; transition: all 0.3s ease;">
-                            📄 View Storyboard
-                        </a>
-                        <a href="https://storage.googleapis.com/rasheedaelearningportfolio/ADDIELOTO.pdf" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #C51F5D; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 500; transition: all 0.3s ease;">
-                            📋 ADDIE Design Document
-                        </a>
+        </section>
+
+        <section id="documents" class="documents">
+            <h2>Design Documents</h2>
+            <div class="documents-grid">
+                <div class="document-card">
+                    <div class="document-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#C51F5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="14,2 14,8 20,8" stroke="#C51F5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="13" x2="8" y2="13" stroke="#C51F5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="17" x2="8" y2="17" stroke="#C51F5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="10,9 9,9 8,9" stroke="#C51F5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
+                    <h3>Social Media & Workplace Behavior Storyboard</h3>
+                    <p>Detailed storyboard documentation for the Social Media & Workplace Behavior course, outlining course structure, learning objectives, interactive scenarios, and visual design specifications for instructional content development.</p>
+                    <div class="document-tags">
+                        <span class="tag">Storyboard</span>
+                    </div>
+                    <a href="https://storage.googleapis.com/rasheedaelearningportfolio/content/Untitled%20document%20(6).pdf" target="_blank" class="course-button">View Document</a>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="contact">
-            <h2>Let's Collaborate</h2>
-            <p style="font-size: 1.4rem; margin-bottom: 1.5rem; color: #C51F5D; font-weight: 600;">Now booking contract work. I help businesses and schools design training that sticks.</p>
-            <p>Ready to develop impactful learning solutions for your organization?</p>
-            
-            <div class="contact-links">
-                <a href="mailto:rmerritt347@gmail.com">📧 Email</a>
-                <a href="https://www.linkedin.com/in/rasheeda-merritt-m-ed-ab7447243">💼 LinkedIn</a>
-                <a href="#" style="background: rgba(197, 31, 93, 0.2); border-color: #C51F5D;">📄 Download Resume</a>
+            <div class="container">
+                <h2>Let's Connect</h2>
+                <p>Ready to collaborate on your next learning project? I'd love to hear from you.</p>
+                <div class="contact-links">
+                    <a href="mailto:rmerritt347@gmail.com">Email Me</a>
+                    <a href="https://www.linkedin.com/in/rasheeda-merritt-m-ed-ab7447243" target="_blank">LinkedIn</a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Instructional Design Portfolio. All rights reserved.</p>
+            <p>&copy; 2025 Rasheeda Merritt. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
         // Gallery functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', () => {
             const galleries = document.querySelectorAll('.course-gallery');
             
-            galleries.forEach(gallery => {
+            galleries.forEach((gallery, galleryIndex) => {
                 const track = gallery.querySelector('.gallery-track');
                 const items = gallery.querySelectorAll('.gallery-item');
                 const prevBtn = gallery.querySelector('.prev');
@@ -880,21 +1083,9 @@
                         dot.classList.toggle('active', index === currentIndex);
                     });
                     
-                    // Update buttons
+                    // Update button states
                     prevBtn.disabled = currentIndex === 0;
                     nextBtn.disabled = currentIndex === totalItems - 1;
-                    
-                    // Update button opacity based on placeholder slide
-                    if (currentIndex === 0) {
-                        prevBtn.style.opacity = '0.5';
-                        nextBtn.style.opacity = '1';
-                    } else if (currentIndex === totalItems - 1) {
-                        prevBtn.style.opacity = '1';
-                        nextBtn.style.opacity = '0.5';
-                    } else {
-                        prevBtn.style.opacity = '1';
-                        nextBtn.style.opacity = '1';
-                    }
                 }
                 
                 function goToSlide(index) {
@@ -916,7 +1107,6 @@
                     }
                 }
                 
-                // Event listeners
                 prevBtn.addEventListener('click', prevSlide);
                 nextBtn.addEventListener('click', nextSlide);
                 
@@ -924,64 +1114,61 @@
                 let startX = 0;
                 let isDragging = false;
                 
-                track.addEventListener('mousedown', (e) => {
+                track.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
                     isDragging = true;
-                    startX = e.clientX;
-                    track.style.cursor = 'grabbing';
                 });
                 
-                track.addEventListener('mousemove', (e) => {
+                track.addEventListener('touchmove', (e) => {
                     if (!isDragging) return;
                     e.preventDefault();
                 });
                 
-                track.addEventListener('mouseup', (e) => {
+                track.addEventListener('touchend', (e) => {
                     if (!isDragging) return;
+                    
+                    const endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            nextSlide();
+                        } else {
+                            prevSlide();
+                        }
+                    }
+                    
                     isDragging = false;
-                    track.style.cursor = 'grab';
+                });
+                
+                // Mouse drag support
+                track.addEventListener('mousedown', (e) => {
+                    startX = e.clientX;
+                    isDragging = true;
+                    track.style.cursor = 'grabbing';
+                });
+                
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('mouseup', (e) => {
+                    if (!isDragging) return;
                     
                     const endX = e.clientX;
                     const diff = startX - endX;
                     
                     if (Math.abs(diff) > 50) {
-                        if (diff > 0 && currentIndex < totalItems - 1) {
+                        if (diff > 0) {
                             nextSlide();
-                        } else if (diff < 0 && currentIndex > 0) {
+                        } else {
                             prevSlide();
                         }
                     }
-                });
-                
-                track.addEventListener('mouseleave', () => {
+                    
                     isDragging = false;
                     track.style.cursor = 'grab';
-                });
-                
-                // Touch events for mobile
-                track.addEventListener('touchstart', (e) => {
-                    startX = e.touches[0].clientX;
-                });
-                
-                track.addEventListener('touchend', (e) => {
-                    const endX = e.changedTouches[0].clientX;
-                    const diff = startX - endX;
-                    
-                    if (Math.abs(diff) > 50) {
-                        if (diff > 0 && currentIndex < totalItems - 1) {
-                            nextSlide();
-                        } else if (diff < 0 && currentIndex > 0) {
-                            prevSlide();
-                        }
-                    }
-                });
-                
-                // Keyboard navigation
-                gallery.addEventListener('keydown', (e) => {
-                    if (e.key === 'ArrowLeft') {
-                        prevSlide();
-                    } else if (e.key === 'ArrowRight') {
-                        nextSlide();
-                    }
                 });
                 
                 // Initialize
@@ -1001,25 +1188,6 @@
                     });
                 }
             });
-        });
-
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
         });
     </script>
 </body>
